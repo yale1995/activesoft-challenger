@@ -1,21 +1,29 @@
+async function chamarPromise (x){
+  let message
+  try {
+    if(x > 7) message = 'Deu certo'
 
-function chamarPromise (x){
-  let myPromise = new Promise(function(myResolve, myReject) {
-    if (x > 7) {
-      myResolve('Deu certo')
-    } else {
-      myReject('Deu errado')
+    else{
+      throw new Error('Número menor que 7')
     }
-  })
-  return myPromise
+
+  } catch (err) {
+    message = 'Deu errado'
+
+    console.log(message, err)
+  }
+
+  return message
 }
 
 function acaoBotao(){
-  chamarPromise(8).then(res => alert(res)).catch(err => alert(err))
+  chamarPromise(2).then(res => alert(res)).catch(err => alert(err))
 }
 
-function acaoBotao2(){
-  chamarPromise(8).then(res => alert(res)).catch(err => alert(err))
+async function acaoBotao2(){
+  const mensagem =  await chamarPromise(5)
+
+  return alert(mensagem)
 }
 
 function Questao4() {

@@ -1,8 +1,23 @@
+import React from "react";
+import ReactDOM from "react-dom";
 
-function CompRodape() {
+
+
+function CompRodape(props) {
     return (
-        <div>Rodapé</div>
+        <div>{props.rodape}</div>
       );    
   }
   
 export default CompRodape;
+
+class Root extends React.Component {
+  render() {
+    return <CompRodape rodape='rodape'/>;
+  }
+}
+
+ReactDOM.render(
+  <Root />,
+  document.body.appendChild(document.createElement("div"))
+)

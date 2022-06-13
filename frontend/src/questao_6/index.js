@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 const ValidationSchema = Yup.object().shape({
   titulo: Yup.string()
     .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
+    .max(50, 'Too Long!').matches(/\^pop$/, 'Erro! Não é permitido a palavra pop')
     .required('Required'),
   autor: Yup.string()
     .min(2, 'Too Short!')

@@ -1,12 +1,9 @@
-import { useState } from "react";
+import { useContext } from "react";
+import  {MyTextContext}  from "./comp2";
 
 function Comp1() {
-    const [texto, setTexto] = useState('Texto')
-    return (
-      <div>
-        {texto}
-      </div>
-    );
-  }
-  
+  const { texto } = useContext(MyTextContext);
+  return <div>{texto}</div>;
+}
+
 export default Comp1;
